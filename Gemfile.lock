@@ -21,6 +21,9 @@ GEM
     multi_json (1.15.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.8)
+    puma (5.6.5)
+      nio4r (~> 2.0)
     rack (2.2.4)
     rack-protection (2.2.2)
       rack
@@ -42,13 +45,15 @@ GEM
       thread_safe (~> 0.1)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-19
 
 DEPENDENCIES
   activerecord
   json
+  puma
   sinatra
   sinatra-contrib
 
 BUNDLED WITH
-   2.2.29
+   2.2.33
