@@ -1,0 +1,49 @@
+name: CI/CD
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:12
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+        options: --entrypoint redis-server
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.x
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install --ignore-engines
+      - name: Build and run test
+        env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/test_pg
+          REDIS_URL: redis://localhost:6379/0
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        run: |
+          export RACK_ENV=test
+          export APP_ENV=test
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+          bundle exec rspec .
+          bundle exec rubocop .
