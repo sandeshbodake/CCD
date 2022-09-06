@@ -28,8 +28,7 @@ end
 
 task :test do
   ENV['RACK_ENV'] = ENV['APP_ENV'] = 'test'
-  sh 'bundle exec rspec'
-  bundle exec 'cucumber'
+  sh 'rspec .'
 end
 
 task :routes do
