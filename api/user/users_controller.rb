@@ -1,4 +1,5 @@
 require './core/services/user/user_service'
+require './api/application_controller'
 require_relative 'models/user_serializer'
 
 module Api

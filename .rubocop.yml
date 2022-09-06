@@ -5,6 +5,8 @@ AllCops:
     - 'config/puma/*.rb'
     - 'Gemfile.lock'
     - 'Rakefile'
+    - 'api/spec/*'
+    - 'core/spec/*'
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:

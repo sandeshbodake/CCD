@@ -24,4 +24,7 @@ group :development, :test do
   gem 'rubocop'
   # code analyzer for rspec tests
   gem 'rubocop-rspec'
+
+  gem 'rack-test'
+  gem 'rspec'
 end

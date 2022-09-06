@@ -1,0 +1,2 @@
+--require ./core/spec/spec_helper
+--require ./api/spec/spec_helper
