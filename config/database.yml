@@ -15,6 +15,9 @@ development:
 test:
   <<: *default
   database: test_pg
+  password: password
+  host: localhost
+  port: 5432
 
 production:
   <<: *default
