@@ -1,0 +1,13 @@
+AllCops:
+  Exclude:
+    - 'migration/db/*.rb'
+    - 'migration/db/migrate/*.rb'
+    - 'config/puma/*.rb'
+    - 'Gemfile.lock'
+    - 'Rakefile'
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Enabled: false

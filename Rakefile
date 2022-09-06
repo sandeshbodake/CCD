@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'dotenv/load'
-# load 'config/db/database.rake'
+load 'migration/database.rake'
 
 ENV['APP_ENV'] = ENV['RACK_ENV']
 

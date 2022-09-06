@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'json'
 gem 'activerecord'
+gem 'dotenv'
+gem 'json'
+gem 'logging'
+gem 'pg'
 gem 'puma'
 gem 'rake'
-gem 'dotenv'
-gem 'logging'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
 
 group :development do
   gem 'foreman'

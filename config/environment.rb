@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../utils/loggable.rb'
+require_relative './utils/loggable'
+require 'sinatra/activerecord'
+
+register Sinatra::ActiveRecordExtension
 
 configure :development, :production do
   enable :static
@@ -17,6 +20,7 @@ configure :development, :production do
       secret: ENV['SESSION_SECRET']
   set :session_store, Rack::Session::Pool
   set :ssl, production?
+  set :database_file, './config/database.yml'
 end
 
 configure :development do
