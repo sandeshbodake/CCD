@@ -5,6 +5,8 @@ require 'sinatra/activerecord'
 
 register Sinatra::ActiveRecordExtension
 
+ActiveRecord::Migrator.migrations_paths = ['./migration/db/migrate']
+
 configure :development, :production do
   enable :static
   enable :logging
