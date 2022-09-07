@@ -3,7 +3,7 @@
 Ruby <> DDD
 ---
 
-## About CCD architecture
+### About CCD architecture
 
 CCD (Core/Connector/Delivery)
 
