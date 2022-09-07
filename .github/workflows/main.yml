@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI
 on: [push, pull_request]
 jobs:
   build:
@@ -40,6 +40,9 @@ jobs:
         run: |
           export RACK_ENV=test
           export APP_ENV=test
+          export LOG_LEVEL=debug
+          export FROM=./migration/db/migrate
+          export SCHEMA=./migration/db/schema.rb
           sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
