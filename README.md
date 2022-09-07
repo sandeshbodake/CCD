@@ -34,10 +34,16 @@ rspec .
 
 ## About CCD architecture 
 
+CCD (Core/Connector/Delivery)
+
+Inside core all business logic related to your domain,
+Inside Connector infrastructure code like creating database connection, making s3 connection, SES connection etc,
+And the delivery is nothing but API handler/Event Handler, delivery layer only deals with input/output operation
+
 CCD is nothing but a [Hexagonal architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)), basically aims to creating loosely coupled application components that can be easily connected to their software environment by means of ports and adapters 
 
 See below image for reference,
 
-![img.png](.github/images/img.png)
+<img src=".github/images/img.png" width="500">
 
 ---
