@@ -21,7 +21,8 @@ require './config/environment'
 require 'sinatra/activerecord'
 require 'rack/test'
 CONFIG_1 = YAML.load(File.open('config/database.yml'))[ENV['RACK_ENV']]
-
+require 'simplecov'
+SimpleCov.start
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
