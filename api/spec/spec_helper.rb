@@ -20,7 +20,7 @@ require 'sinatra/json'
 require './config/environment'
 require 'sinatra/activerecord'
 require 'rack/test'
-CONFIG_1 = YAML.load(File.open('config/database.yml'))[ENV['RACK_ENV']]
+CONFIG_1 = YAML.load(File.open('config/database.yml'), aliases: true)[ENV['RACK_ENV']]
 require 'simplecov'
 SimpleCov.start
 RSpec.configure do |config|

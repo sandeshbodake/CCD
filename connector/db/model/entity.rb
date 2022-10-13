@@ -9,7 +9,7 @@ module Connector
     extend Logging::Loggable
     # Could exist one config file for each database
     # rubocop:disable Security/YAMLLoad
-    CONFIG_1 = YAML.load(File.open('config/database.yml'))[ENV['RACK_ENV']]
+    CONFIG_1 = YAML.load(File.open('config/database.yml'), aliases: true)[ENV['RACK_ENV']]
                    .merge('schema_search_path' => 'public')
     # rubocop:enable Security/YAMLLoad
 
